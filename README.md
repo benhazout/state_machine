@@ -31,7 +31,7 @@ First import state_machine
 from state_machine.state_machine import StateMachine, State, Event
 ```
 
-####Extend State to print State name on entry
+#### Extend State to print State name on entry
 - note we added on every state entry to print the state's name - this is in order that we can track the current state without requesting it 'manully' every time.
 
 ``` python
@@ -48,12 +48,12 @@ class MyState(State):
     def exit_callback(self, data):
         pass
 ```
-####Create output function - to be called when event has been triggered 3 times in a row
+#### Create output function - to be called when event has been triggered 3 times in a row
 ``` python
 def output_three_in_a_row(data):
     print('event triggered THREE TIMES IN A ROW!')
 ```
-####Create states
+#### Create states
 - note that on states D and G (final states) we added our output function to the state 'on_entry' callbacks - so when entering these states 'output_three_in_a_row' will be called
 
 ``` python
@@ -67,16 +67,16 @@ s_f = MyState('F')
 s_g = MyState('G')
 s_g.on_entry(output_three_in_a_row)
 ```
-####Create events
+#### Create events
 ``` python
 e0 = Event('0')
 e1 = Event('1')
 ```
-####Create State Machine
+#### Create State Machine
 ``` python
 triple_event = StateMachine('Triple Event')
 ```
-####Add states to State Machine
+#### Add states to State Machine
 ``` python
 triple_event.add_state(s_a, initial_state=True)
 triple_event.add_state(s_b)
@@ -86,12 +86,12 @@ triple_event.add_state(s_e)
 triple_event.add_state(s_f)
 triple_event.add_state(s_g)
 ```
-####Add events to State Machine
+#### Add events to State Machine
 ``` python
 triple_event.add_event(e0)
 triple_event.add_event(e1)
 ```
-####Add transitions to State Machine
+#### Add transitions to State Machine
 - pay attention - this implements the logic of the machine
 
 ``` python
@@ -114,11 +114,11 @@ triple_event.add_transition(s_f, s_g, e1)
 
 triple_event.add_transition(s_g, s_e, e0)
 ```
-####Start the machine
+#### Start the machine
 ``` python
 triple_event.start('')
 ```
-####Trigger events
+#### Trigger events
 ``` python
 triple_event.trigger_event(e0)
 triple_event.trigger_event(e1)
@@ -154,7 +154,7 @@ triple_event.restart('')
 triple_event.trigger_event(e1)
 triple_event.trigger_event(e1)
 ```
-####Output
+#### Output
 ``` commandline
 A
 B
@@ -173,7 +173,7 @@ event triggered THREE TIMES IN A ROW!
 
 ```
 
-####Full example.py file
+#### Full example.py file
 ``` python
 from state_machine.state_machine import StateMachine, State, Event
 
@@ -296,7 +296,7 @@ triple_event.trigger_event(e1)
 ```
 ## Objects properties and methods
 ### State, Event, Transition and StateMachine
-###State
+### State
 ***Properties***:
 -name
 -entry_callbacks
@@ -307,10 +307,10 @@ triple_event.trigger_event(e1)
 -on_exit
 -start (starts all on entry callbacks)
 -stop (starts all on exit callbacks)
-###Event
+### Event
 ***Properties***:
 -name
-###Transition
+### Transition
 ***Properties***:
 -event
 -source_state
@@ -322,20 +322,20 @@ triple_event.trigger_event(e1)
 -add_condition
 -add_action
 
-####NormalTransition(Transition)
+#### NormalTransition(Transition)
 passes state both as source and destination,  stops and starts state callbacks 
 ***Properties***:  
 -from
 -to
-####SelfTransition(Transition)
+#### SelfTransition(Transition)
 passes state both as source and destination,  stops and starts state callbacks 
 ***Properties***:  
 -self
-####NullTransition(Transition)
+#### NullTransition(Transition)
 passes state both as source and destination,  doesn't stop/start state callbacks
 ***Properties***:  
 -self
-###StateMachine
+### StateMachine
 ***Properties***:
 -name
 -states
