@@ -8,5 +8,5 @@ setup(
     packages=['state_machine'],
     version='0.1',
     description='An example of a python package from pre-existing code',
-    long_description=open('README.txt').read(),
+    long_description=open('README.md').read(),
 )
