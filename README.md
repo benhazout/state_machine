@@ -119,6 +119,7 @@ triple_event.add_transition(s_g, s_e, e0)
 triple_event.start('')
 ```
 #### Trigger events
+- note that every time there is a transition/ a state is initiated - it is stored ('dumped') using python's built-in pickle Library. It allows us to save python objects into files and load them whenever we want. That is how we accomplish persistency - if the machine stops for any reason, instead of starting again - it can restart and continue from the last state it was in.
 ``` python
 triple_event.trigger_event(e0)
 triple_event.trigger_event(e1)
