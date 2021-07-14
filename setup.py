@@ -9,4 +9,5 @@ setup(
     version='0.1',
     description='An example of a python package from pre-existing code',
     long_description=open('README.md').read(),
+    scripts=['scripts/example.py'],
 )
