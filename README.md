@@ -294,65 +294,67 @@ triple_event.restart('')
 triple_event.trigger_event(e1)
 triple_event.trigger_event(e1)
 ```
-## Objects properties and methods
+
+
+# Objects properties and methods
 ### State, Event, Transition and StateMachine
 ### State
 ***Properties***:
--name
--entry_callbacks
--exit_callbacks
+- name
+- entry_callbacks
+- exit_callbacks
 
 ***Methods***:
--on_entry
--on_exit
--start (starts all on entry callbacks)
--stop (starts all on exit callbacks)
+- on_entry
+- on_exit
+- start (starts all on entry callbacks)
+- stop (starts all on exit callbacks)
 ### Event
 ***Properties***:
--name
+- name
 ### Transition
 ***Properties***:
--event
--source_state
--destination_state
--condition (optional)
--action (optional)
+- event
+- source_state
+- destination_state
+- condition (optional)
+- action (optional)
 
 ***Methods***:
--add_condition
--add_action
+- add_condition
+- add_action
 
 #### NormalTransition(Transition)
 passes state both as source and destination,  stops and starts state callbacks 
 ***Properties***:  
--from
--to
+- from
+- to
 #### SelfTransition(Transition)
 passes state both as source and destination,  stops and starts state callbacks 
 ***Properties***:  
--self
+- self
 #### NullTransition(Transition)
 passes state both as source and destination,  doesn't stop/start state callbacks
 ***Properties***:  
--self
+- self
 ### StateMachine
 ***Properties***:
--name
--states
--events
--transitions
--initial_state 
--final_state
--current_state
+- name
+- states
+- events
+- transitions
+- initial_state 
+- final_state
+- current_state
 
 ***Methods***:
--start (start the State Machine and the initial state)
--restart (when wanting to restart a machine that has stopped for some reason, and we want to continue from it's last-current state)
--stop (stop the machine)
--add_state
--add_event
--add_transition
--add_self_transition
--add_null_transition
--trigger_event (trigger an event)
+- start (start the State Machine and the initial state)
+- restart (when wanting to restart a machine that has stopped for some reason, and we want to continue from it's last-current state)
+- stop (stop the machine)
+- add_state
+- add_event
+- add_transition
+- add_self_transition
+- add_null_transition
+- trigger_event (trigger an event)
 
